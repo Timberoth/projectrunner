@@ -45,12 +45,17 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Collectible\Collectible.cs" />
+     <Compile Include="Assets\Scripts\Movement\CharacterControllerMovementScript.cs" />
+     <Compile Include="Assets\Scripts\Movement\RigidbodyMovementScript.cs" />
+     <Compile Include="Assets\Scripts\Movement\RigidbodyTranslateMovementScript.cs" />
      <Compile Include="Assets\Scripts\Platforms\Platform.cs" />
      <Compile Include="Assets\Scripts\iTween\iTween.cs" />
      <None Include="Assets\Plugins\AnBSoft Common\Standard Font\Arial, Fancy.txt" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Plugins\AnBSoft Common\Standard Shaders\Sprite Cutout.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\ skybox info.txt" />
+     <None Include="Assets\Shaders\BackgroundAndCharacters\CharacterSelfIlluminationReflective.shader" />
+     <None Include="Assets\Shaders\BackgroundAndCharacters\ProjectRunnerInclude.cginc" />
      <None Include="Assets\Plugins\AnBSoft Common\Standard Shaders\Transparent Vertex Colored.shader" />
   </ItemGroup>
   <ItemGroup>
