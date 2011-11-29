@@ -17,6 +17,9 @@ public class Collectible : MonoBehaviour {
 	
 	void OnTriggerEnter( Collider other )
 	{
+		// Track collectible
+		CollectibleManager.Instance.IncrementStarsCollected();		
+		
 		// Fire Particle FX
 		if( collectItemFX )
 		{
@@ -24,8 +27,7 @@ public class Collectible : MonoBehaviour {
 			GameObject.Instantiate( collectItemFX, this.transform.position, this.transform.rotation );			
 		}
 		
-		// Play Sound FX
-		
+		// Play Sound FX			
 		
 		// Destroy this collectible
 		GameObject.Destroy( this.gameObject );

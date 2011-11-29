@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Collectible\Collectible.cs" />
+     <Compile Include="Assets\Scripts\Managers\CollectibleManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\LevelManager.cs" />
      <Compile Include="Assets\Scripts\Movement\CharacterControllerMovementScript.cs" />
      <Compile Include="Assets\Scripts\Movement\RigidbodyMovementScript.cs" />
      <Compile Include="Assets\Scripts\Movement\RigidbodyTranslateMovementScript.cs" />
