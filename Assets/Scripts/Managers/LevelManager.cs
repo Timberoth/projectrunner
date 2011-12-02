@@ -16,14 +16,15 @@ public class LevelManager : MonoBehaviour {
 #if UNITY_EDITOR
 	private bool mouseHeld = false;
 #endif
+		
 	
 	// Prefab References used to spawn objects at run time
 	
 	
 	
-	/*
-	 * LevelManager Singleton Code
-	 */	
+	/// <summary>
+	/// LevelManager Singleton Code 
+	/// </summary>
 	public static LevelManager instance;
 	void Awake(){		
 		if(instance == null){
@@ -36,11 +37,9 @@ public class LevelManager : MonoBehaviour {
 	
 	
 	
-	/*
-	 * Unity Functions 
-	 */
-	
-	// Use this for initialization
+	/// <summary>
+	/// Constructor - Use this for initialization before anything is visible
+	/// </summary>	
 	void Start () {
 		
 		// TODO DEBUG START
@@ -50,12 +49,12 @@ public class LevelManager : MonoBehaviour {
 		CollectibleManager.Instance.Initialize();
 		
 		// TODO DEBUG END
-		
-		
-		
+			
 	}
 	
-	// Update is called once per frame
+	/// <summary>
+	/// Update is called once per frame 
+	/// </summary>	
 	void Update () {
 		
 		// Check for input
@@ -134,4 +133,52 @@ public class LevelManager : MonoBehaviour {
 		}
 #endif
 	}	
+	
+	/// <summary>
+	/// This function gets the "game" started and hands over control to the player.
+	/// This allows us to get the level started whenever we want instead of starting
+	/// the level as soon as the LevelManager object is instantiated and Start() is called.
+	/// </summary>
+	public void StartLevel()
+	{
+		print("Level Started");
+		// Play particles
+		
+		// Play sounds
+		
+		
+		// Get the player moving
+	}
+	
+	
+	/// <summary>
+	/// This function is called when the finish line object is triggered and we
+	/// need to start wrapping things up and transition to another scene.
+	/// </summary>
+	public void FinishLevel()
+	{
+		print("Level Finished");
+		
+		// Play particles
+		
+		// Play sounds
+		
+		// Show results text
+		
+		// Wait for input and then move to the next scene
+		
+		
+		// TODO DEBUG ONLY - Reload the scene.
+		Application.LoadLevel( "Sandbox" );
+	}
+	
+		
+	/// <summary>
+	/// Pause the game.  This may be called when users switch to another app. 
+	/// </summary>
+	public void PauseLevel()
+	{
+		print("Level Paused");
+	}
+	
 }
