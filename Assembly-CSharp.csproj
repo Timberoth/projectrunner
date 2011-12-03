@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Collectible\Collectible.cs" />
+     <Compile Include="Assets\Scripts\LevelObjects\FinishLine.cs" />
      <Compile Include="Assets\Scripts\Managers\CollectibleManager.cs" />
      <Compile Include="Assets\Scripts\Managers\LevelManager.cs" />
      <Compile Include="Assets\Scripts\Movement\CharacterControllerMovementScript.cs" />

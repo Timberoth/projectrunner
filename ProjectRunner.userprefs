@@ -2,10 +2,10 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Managers\LevelManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\Managers\CollectibleManager.cs" Line="23" Column="3" />
-      <File FileName="Assets\Scripts\Collectible\Collectible.cs" Line="21" Column="57" />
-      <File FileName="Assets\Scripts\Platforms\Platform.cs" Line="15" Column="36" />
-      <File FileName="Assets\Scripts\Managers\LevelManager.cs" Line="50" Column="44" />
+      <File FileName="Assets\Scripts\Managers\CollectibleManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Collectible\Collectible.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Platforms\Platform.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Managers\LevelManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
