@@ -56,6 +56,8 @@ public sealed class CollectibleManager {
 	{				
 		starsCollected = newValue;
 		
+		LevelManager.instance.collectibleText.Text = "Collectibles: "+starsCollected;
+		
 		if( saveGame )
 			Save();
 	}
@@ -70,5 +72,7 @@ public sealed class CollectibleManager {
 	public void IncrementStarsCollected()
 	{
 		starsCollected++;
+		
+		LevelManager.instance.collectibleText.Text = "Collectibles: "+starsCollected;
 	}
 }
