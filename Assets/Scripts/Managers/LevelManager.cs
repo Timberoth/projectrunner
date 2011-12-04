@@ -18,6 +18,9 @@ public class LevelManager : MonoBehaviour {
 #endif
 		
 	
+	// CollectibleText reference that is used by LevelManager and CollectibleManager.
+	public SpriteText collectibleText = null;
+	
 	// Prefab References used to spawn objects at run time
 	
 	
@@ -49,7 +52,21 @@ public class LevelManager : MonoBehaviour {
 		CollectibleManager.Instance.Initialize();
 		
 		// TODO DEBUG END
-			
+		
+		// Initialize all the GUI references
+		GameObject collectibleTextObject = GameObject.Find("CollectiblesText");
+		if( collectibleTextObject )
+		{
+			collectibleText = collectibleTextObject.GetComponent<SpriteText>();	
+			collectibleText.Text = "Collectibles: 0";
+		}
+		
+		// BREAK if we don't have the collectibles gui object
+		else
+		{
+			print("[ERROR] CollectiblesText not found.");
+			Debug.Break();
+		}			
 	}
 	
 	/// <summary>
@@ -181,4 +198,5 @@ public class LevelManager : MonoBehaviour {
 		print("Level Paused");
 	}
 	
+		
 }
