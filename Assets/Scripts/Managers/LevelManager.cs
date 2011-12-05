@@ -3,27 +3,26 @@ using System.Collections;
 
 public class LevelManager : MonoBehaviour {
 	
-	/*
-	 * Enums
-	 */
 	
-	
-	
-	/*
-	 * Publics
-	 */	
-	
+	// INPUT CODE
 #if UNITY_EDITOR
 	private bool mouseHeld = false;
 #endif
 		
 	
+	// GUI CODE
+	
 	// CollectibleText reference that is used by LevelManager and CollectibleManager.
 	public SpriteText collectibleText = null;
+	
+	// Last Checkpoint Position
+	public Vector3 checkPointPosition;
 	
 	// Prefab References used to spawn objects at run time
 	
 	
+	// Keep a reference to the player object
+	private GameObject playerObject = null;
 	
 	/// <summary>
 	/// LevelManager Singleton Code 
@@ -44,6 +43,24 @@ public class LevelManager : MonoBehaviour {
 	/// Constructor - Use this for initialization before anything is visible
 	/// </summary>	
 	void Start () {
+		
+		checkPointPosition = new Vector3();
+		
+		// Cache a reference to the player object.
+		playerObject = GameObject.Find("CharacterControllerPlayer");
+
+		// Check it exists
+		if( !playerObject )
+		{
+			print("[ERROR] Could not find the player object");
+			Debug.Break();	
+		}
+				
+		// Track the player's initial position for the checkpoint		
+		checkPointPosition.x = playerObject.transform.position.x;	
+		checkPointPosition.y = playerObject.transform.position.y;
+		checkPointPosition.z = playerObject.transform.position.z;		
+		
 		
 		// TODO DEBUG START
 		
@@ -151,6 +168,7 @@ public class LevelManager : MonoBehaviour {
 #endif
 	}	
 	
+	
 	/// <summary>
 	/// This function gets the "game" started and hands over control to the player.
 	/// This allows us to get the level started whenever we want instead of starting
@@ -185,8 +203,28 @@ public class LevelManager : MonoBehaviour {
 		// Wait for input and then move to the next scene
 		
 		
-		// TODO DEBUG ONLY - Reload the scene.
-		Application.LoadLevel( "Sandbox" );
+		// TODO DEBUG ONLY - Reload the scene.  Should go to score screen.
+		Application.LoadLevel( "Sandbox" );		
+	}
+	
+	
+	/// <summary>
+	/// Restart the level - Reset the level objects, hopefully this
+	/// won't screw up the timing of anything.
+	/// </summary>
+	public void RestartLevel()
+	{
+		// Go through all the objects in the scene and call their Reset function.
+		// This could be optimized by tagging all level objects just to go through them
+		// instead of everything.
+		foreach( GameObject gameObj in FindObjectsOfType (typeof(GameObject)) )
+		{
+			gameObj.SendMessage ("ResetObject", SendMessageOptions.DontRequireReceiver);			
+		}
+		
+		
+		// Spawn the player at the last checkpoint.
+		playerObject.transform.position = checkPointPosition;		
 	}
 	
 		
@@ -196,7 +234,16 @@ public class LevelManager : MonoBehaviour {
 	public void PauseLevel()
 	{
 		print("Level Paused");
+		Time.timeScale = 0.0f;
 	}
 	
-		
+	
+	/// <summary>
+	/// Unpause the game. 
+	/// </summary>
+	public void UnpauseLevel()
+	{
+		print("Level Unpaused");
+		Time.timeScale = 1.0f;
+	}
 }

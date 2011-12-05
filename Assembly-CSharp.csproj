@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Collectible\Collectible.cs" />
+     <Compile Include="Assets\Scripts\LevelObjects\CheckPoint.cs" />
      <Compile Include="Assets\Scripts\LevelObjects\FinishLine.cs" />
      <Compile Include="Assets\Scripts\LevelObjects\Killzone.cs" />
      <Compile Include="Assets\Scripts\Managers\CollectibleManager.cs" />
