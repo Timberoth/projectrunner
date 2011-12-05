@@ -24,10 +24,7 @@ public class Killzone : MonoBehaviour {
 		
 		// Play particle
 		
-		// Reset the level or spawn the player at the last check point
-		
-		
-		// TODO DEBUG ONLY
-		LevelManager.instance.FinishLevel();
+		// Reset the level or spawn the player at the last check point		
+		LevelManager.instance.RestartLevel();
 	}
 }
