@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\Movement\CharacterControllerMovementScript.cs" />
      <Compile Include="Assets\Scripts\Movement\RigidbodyMovementScript.cs" />
      <Compile Include="Assets\Scripts\Movement\RigidbodyTranslateMovementScript.cs" />
+     <Compile Include="Assets\Scripts\Platforms\MovingPlatform.cs" />
      <Compile Include="Assets\Scripts\Platforms\Platform.cs" />
      <Compile Include="Assets\Scripts\iTween\iTween.cs" />
      <None Include="Assets\Plugins\AnBSoft Common\Standard Font\Arial, Fancy.txt" />
