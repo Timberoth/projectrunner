@@ -1,10 +1,10 @@
 using UnityEngine;
 using System.Collections;
 
-/**
- * Basic surface that the character can run on.
- * Can contain particle, sound, physics triggers
- */
+/// <summary>
+/// Basic surface that the character can run on.
+/// Can contain particle, sound, physics triggers
+/// </summary>
 public class Platform : MonoBehaviour {
 
 	// Use this for initialization
