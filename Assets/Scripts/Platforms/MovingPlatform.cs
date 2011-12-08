@@ -44,7 +44,7 @@ public class MovingPlatform : Platform {
 	
 	// Use this for initialization
 	void Start () {	
-		
+		/*
 		if( transform.childCount < 1 )
 		{
 			print("[ERROR] - Moving platform does not have any waypoints.");
@@ -75,12 +75,26 @@ public class MovingPlatform : Platform {
 		iTween.MoveTo(gameObject, iTween.Hash("position", waypoints[waypointIndex],		                                      
 		                                      "speed", speed,
 		                                      "oncomplete", "WaypointReached"));
+		      */                                
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
+	
+	
+	
+	private float speed2 = 0.1f;
+	public GameObject targetA;
+	public GameObject targetB;
+	
+	void FixedUpdate () 
+	{
+		float weight = Mathf.Cos(Time.time * speed2 * 2 * Mathf.PI) * 0.5f + 0.5f;
+		transform.position = targetA.transform.position * weight + targetB.transform.position * (1-weight);
+	}
+	
 	
 	/// <summary>
 	/// The current waypoint has been reached.
