@@ -20,19 +20,22 @@ public class CharacterControllerMovementScript : MonoBehaviour {
 	private Vector3 lastPlatformVelocity;
 	
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		lookingLeft = true;
 		isJumping = false;
 		lastX = 0;
 		notGroundedTimer = 0;
 	}
 	
+	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 		
 		// Moving platform support
 		if ( activePlatform != null ) 
-		{
+		{			
 			Vector3 newGlobalPlatformPoint = activePlatform.TransformPoint(activeLocalPlatformPoint);
 			// Calculate the distance traveled by the platform between frames
 			Vector3 moveDistance = (newGlobalPlatformPoint - activeGlobalPlatformPoint);
@@ -108,18 +111,37 @@ public class CharacterControllerMovementScript : MonoBehaviour {
 			animation.CrossFade("idle");
 		}
 		
+		
+		// Moving platform support
+		// This is a hacky special case to make sure that platforms will
+		// push the character when he's standing completely still.
+		// By apply a little x movement, the Move function will resolve
+		// the collisions.  Without it the platform will pass through.
+		if( movementVector.x == 0.0f )
+		{
+			movementVector.x = 0.00001f;	
+		}
+		
+		// Move the player
 		controller.Move(movementVector);
+		
 		
 		// Moving platforms support - not quite sure what this is good for
 		if (activePlatform != null) {
 			activeGlobalPlatformPoint = transform.position;
 			activeLocalPlatformPoint = activePlatform.InverseTransformPoint (transform.position);
-		}
+		}		
 	}
 	
 	
 	void OnControllerColliderHit( ControllerColliderHit hit )
 	{
+		// Only want to track "Moving" objects like MovingPlatforms
+		if( !hit.gameObject.name.Contains("Moving") )
+		{
+			return;
+		}
+		
 		if (hit.moveDirection.y > 0.01) 
 			return;
 		
@@ -129,5 +151,5 @@ public class CharacterControllerMovementScript : MonoBehaviour {
 		{
 			activePlatform = hit.collider.transform;	
 		}
-	}
+	}	
 }
