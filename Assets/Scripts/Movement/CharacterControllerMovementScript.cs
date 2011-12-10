@@ -12,6 +12,13 @@ public class CharacterControllerMovementScript : MonoBehaviour {
 	private float lastX;
 	private float notGroundedTimer;
 	
+	
+	// Moving platform support
+	private Transform activePlatform;
+	private Vector3 activeLocalPlatformPoint;
+	private Vector3 activeGlobalPlatformPoint;
+	private Vector3 lastPlatformVelocity;
+	
 	// Use this for initialization
 	void Start () {
 		lookingLeft = true;
@@ -22,6 +29,26 @@ public class CharacterControllerMovementScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
+		// Moving platform support
+		if ( activePlatform != null ) 
+		{
+			Vector3 newGlobalPlatformPoint = activePlatform.TransformPoint(activeLocalPlatformPoint);
+			// Calculate the distance traveled by the platform between frames
+			Vector3 moveDistance = (newGlobalPlatformPoint - activeGlobalPlatformPoint);
+			
+			// Apply that movement to the player.
+			transform.position = transform.position + moveDistance;
+			
+			// Calculate platform velocity.
+			lastPlatformVelocity = (newGlobalPlatformPoint - activeGlobalPlatformPoint) / Time.deltaTime;
+		} else {
+			lastPlatformVelocity = Vector3.zero;	
+		}
+		
+		// Null the platform since it'll be set next frame by the collision.
+		activePlatform = null;
+		
 		
 		// make character look in the right direction and not topple over
 		transform.LookAt(transform.position + (lookingLeft ? Vector3.left : Vector3.right), Vector3.up);
@@ -82,5 +109,25 @@ public class CharacterControllerMovementScript : MonoBehaviour {
 		}
 		
 		controller.Move(movementVector);
+		
+		// Moving platforms support - not quite sure what this is good for
+		if (activePlatform != null) {
+			activeGlobalPlatformPoint = transform.position;
+			activeLocalPlatformPoint = activePlatform.InverseTransformPoint (transform.position);
+		}
+	}
+	
+	
+	void OnControllerColliderHit( ControllerColliderHit hit )
+	{
+		if (hit.moveDirection.y > 0.01) 
+			return;
+		
+		// Make sure we are really standing on a straight platform
+		// Not on the underside of one and not falling down from it either!
+		//if (hit.moveDirection.y < -0.9 && hit.normal.y > 0.9) 
+		{
+			activePlatform = hit.collider.transform;	
+		}
 	}
 }
