@@ -42,6 +42,8 @@ public class MovingPlatform : Platform {
 	/// </summary>
 	public float speed = 1.0f;
 	
+	public iTween.EaseType easeType = iTween.EaseType.easeInOutQuad;
+	
 	// Use this for initialization
 	void Start () {	
 		
@@ -73,6 +75,7 @@ public class MovingPlatform : Platform {
 		// Start moving toward the first waypoint.
 		iTween.MoveTo(gameObject, iTween.Hash("position", waypoints[waypointIndex],		                                      
 		                                      "speed", speed,
+		                                      "easetype", easeType,
 		                                      "oncomplete", "WaypointReached"));
 		                                     
 	}
@@ -103,6 +106,7 @@ public class MovingPlatform : Platform {
 				
 				iTween.MoveTo(gameObject, iTween.Hash("position", startingPosition,
 		                                      "speed", speed,
+				                              "easetype", easeType,
 		                                      "oncomplete", "WaypointReached"));
 			}
 			
@@ -121,6 +125,7 @@ public class MovingPlatform : Platform {
 			{
 				iTween.MoveTo(gameObject, iTween.Hash("position", waypoints[waypointIndex],
 		                                      "speed", speed,
+				                              "easetype", easeType,        
 		                                      "oncomplete", "WaypointReached"));
 			}
 			
@@ -135,6 +140,7 @@ public class MovingPlatform : Platform {
 		{			
 			iTween.MoveTo(gameObject, iTween.Hash("position", waypoints[waypointIndex],
 		                                      "speed", speed,
+			                                  "easetype", easeType,
 		                                      "oncomplete", "WaypointReached"));
 		}
 		
