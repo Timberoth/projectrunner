@@ -47,7 +47,7 @@ public class LevelManager : MonoBehaviour {
 		checkPointPosition = new Vector3();
 		
 		// Cache a reference to the player object.
-		playerObject = GameObject.Find("CharacterControllerPlayer");
+		playerObject = GameObject.Find("Boxy");
 
 		// Check it exists
 		if( !playerObject )

@@ -77,6 +77,7 @@ public class CharacterControllerMovementScript : MonoBehaviour {
 		// only jump from the ground
 		if (controller.isGrounded && Input.GetButton("Jump")){
 			isJumping = true;
+			animation.CrossFade("Jump");			
 	    }
 		// if jumping, add the jumpspeed to current movement
 		if (isJumping) {
@@ -101,14 +102,17 @@ public class CharacterControllerMovementScript : MonoBehaviour {
 			// if starting run, calculate normally, else stop quicker
 			if ((movingRight && lastX <= movementVector.x) ||
 			    (!movingRight && lastX >= movementVector.x)) {
-				animation.CrossFade("run_forward");
-				lastX = movementVector.x;
-			} else {
-				animation.CrossFade("idle");
+				
+				if( !isJumping )
+					animation.CrossFade("Walk");				
+				
+				lastX = movementVector.x;				
+			} else {				
 				lastX = 0;
 			}
 		} else {
-			animation.CrossFade("idle");
+			if( !isJumping )
+				animation.CrossFade("Idle");			
 		}
 		
 		
