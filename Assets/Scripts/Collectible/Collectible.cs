@@ -22,20 +22,24 @@ public class Collectible : MonoBehaviour {
 	
 	void OnTriggerEnter( Collider other )
 	{
-		// Track collectible
-		CollectibleManager.Instance.IncrementStarsCollected();		
-		
-		// Fire Particle FX
-		if( collectItemFX )
-		{			
-			GameObject.Instantiate( collectItemFX, this.transform.position, this.transform.rotation );			
+		// Check for player tag
+		if( other.gameObject.tag == "Player" )
+		{		
+			// Track collectible
+			CollectibleManager.Instance.IncrementStarsCollected();		
+			
+			// Fire Particle FX
+			if( collectItemFX )
+			{			
+				GameObject.Instantiate( collectItemFX, this.transform.position, this.transform.rotation );			
+			}
+			
+			// Play Sound FX	
+			AudioSource.PlayClipAtPoint( collectibleHit.clip, Vector3.zero );
+			
+			// Destroy this collectible
+			GameObject.Destroy( this.gameObject );
 		}
-		
-		// Play Sound FX	
-		AudioSource.PlayClipAtPoint( collectibleHit.clip, Vector3.zero );
-		
-		// Destroy this collectible
-		GameObject.Destroy( this.gameObject );
 	}
 	
 	void InitializeAudio()
