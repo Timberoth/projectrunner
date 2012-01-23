@@ -30,11 +30,15 @@ public class FinishLine : MonoBehaviour {
 	/// </summary>
 	void OnTriggerEnter( Collider other )
 	{
-		// Play particles
+		// Check for player tag
+		if( other.gameObject.tag == "Player" )
+		{
+			// Play particles
 		
-		// Play sound
+			// Play sound
 		
-		// Call the end level function
-		LevelManager.instance.FinishLevel();
+			// Call the end level function
+			LevelManager.instance.FinishLevel();	
+		}		
 	}
 }
