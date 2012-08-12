@@ -7,6 +7,8 @@ public class CharacterControllerMovementScript : MonoBehaviour {
 	public float jumpForce = 10f;
 	public float fallRate = 54f;
 	
+	public GameObject mainCamera;
+	
 	private bool lookingLeft;
 	private bool isJumping;
 	private float lastX;
@@ -32,6 +34,11 @@ public class CharacterControllerMovementScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		// Update camera to character's position
+		Vector3 cameraPosition = this.transform.position;
+		cameraPosition.z = this.mainCamera.transform.position.z;
+		this.mainCamera.transform.position = cameraPosition;
+		
 		
 		// Moving platform support
 		if ( activePlatform != null ) 
