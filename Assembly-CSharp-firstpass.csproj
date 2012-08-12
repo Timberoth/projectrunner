@@ -94,12 +94,17 @@
      <Compile Include="Assets\Plugins\Sprite Scripts\Support\SpriteMesh_Managed.cs" />
      <Compile Include="Assets\Plugins\Sprite Scripts\Support\SpriteRoot.cs" />
      <None Include="Assets\Plugins\AnBSoft Common\Standard Font\Arial, Fancy.txt" />
+     <None Include="Assets\ex2D\Core\Shaders\SpriteBlendClipping.shader" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Plugins\AnBSoft Common\Standard Shaders\Sprite Cutout.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\ skybox info.txt" />
      <None Include="Assets\Shaders\BackgroundAndCharacters\CharacterSelfIlluminationReflective.shader" />
      <None Include="Assets\Shaders\BackgroundAndCharacters\ProjectRunnerInclude.cginc" />
      <None Include="Assets\Plugins\AnBSoft Common\Standard Shaders\Transparent Vertex Colored.shader" />
+     <None Include="Assets\ex2D\Core\Shaders\SpriteBlend.shader" />
+ <Reference Include="ex2D.Runtime">
+ <HintPath>Assets\ex2D\Core\ex2D.Runtime.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
