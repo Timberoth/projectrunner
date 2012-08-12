@@ -9,12 +9,6 @@ public class LevelManager : MonoBehaviour {
 	private bool mouseHeld = false;
 #endif
 		
-	
-	// GUI CODE
-	
-	// CollectibleText reference that is used by LevelManager and CollectibleManager.
-	public SpriteText collectibleText = null;
-	
 	// Last Checkpoint Position
 	public Vector3 checkPointPosition;
 	
@@ -70,20 +64,7 @@ public class LevelManager : MonoBehaviour {
 		
 		// TODO DEBUG END
 		
-		// Initialize all the GUI references
-		GameObject collectibleTextObject = GameObject.Find("CollectiblesText");
-		if( collectibleTextObject )
-		{
-			collectibleText = collectibleTextObject.GetComponent<SpriteText>();	
-			collectibleText.Text = "Collectibles: 0";
-		}
-		
-		// BREAK if we don't have the collectibles gui object
-		else
-		{
-			print("[ERROR] CollectiblesText not found.");
-			Debug.Break();
-		}			
+		// Initialize all the GUI references		
 	}
 	
 	/// <summary>
