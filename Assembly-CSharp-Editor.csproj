@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
 	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-	<ProductVersion>9.0.21022</ProductVersion>
+	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
 	<ProjectGuid>{74619A13-1A6B-BEF3-A73A-E1FC6BF7EF70}</ProjectGuid>
 	<OutputType>Library</OutputType>
@@ -18,7 +18,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_3_4_0;UNITY_3_4;UNITY_EDITOR;ENABLE_PROFILER;UNITY_WEBPLAYER;ENABLE_GENERICS;ENABLE_DUCK_TYPING;ENABLE_TERRAIN;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_3_5_3;UNITY_3_5;UNITY_EDITOR;ENABLE_PROFILER;UNITY_WEBPLAYER;ENABLE_GENERICS;ENABLE_DUCK_TYPING;ENABLE_TERRAIN;ENABLE_MOVIES;ENABLE_WEBCAM;ENABLE_MICROPHONE;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW;ENABLE_SUBSTANCE</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -84,17 +84,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{236B53BF-6A13-C10C-4EDB-893F48CB2F49}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
+      <Project>{236B53BF-6A13-C10C-4EDB-893F48CB2F49}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
-      <Project>{2761BE85-C78E-370E-0E6D-5D51AD067864}</Project>
-      <Name>Assembly-UnityScript-firstpass</Name>
-    </ProjectReference>
+      <Project>{2761BE85-C78E-370E-0E6D-5D51AD067864}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{6F98B31A-6DDC-339A-DEF7-107EB04F43DC}</Project>
-      <Name>Assembly-CSharp</Name>
-    </ProjectReference>
+      <Project>{6F98B31A-6DDC-339A-DEF7-107EB04F43DC}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -106,4 +100,3 @@
   -->
   
 </Project>
-	
